@@ -1,0 +1,25 @@
+From: "Elena Ruiz" <elena@copperkettle.example>
+To: Harbor Support <support@harborapp.example>
+Subject: CHECKOUT DOWN SINCE 9AM - LOSING SALES
+Date: Wed, 30 Sep 2026 09:48:17 -0700
+Message-ID: <sample-04-outage-html@mail.example.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset="UTF-8"
+
+<html>
+<head><title>Urgent</title><style>.x{color:red}</style></head>
+<body>
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all">Checkout outage report - preview text</div>
+<p>HELLO?? OUR CHECKOUT HAS BEEN DOWN SINCE 9AM.</p>
+<p>Customers get a blank white page after clicking <b>Pay now</b> and our shop is
+losing sales every minute. This is our busiest morning of the week.
+Your status page says everything is fine, it is NOT fine.</p>
+<p>Please call me back on the number below as soon as you read this.</p>
+<p>Elena Ruiz<br>Owner, Copper Kettle Coffee<br>+1 555 0177</p>
+<hr>
+<p style="font-size:11px;color:#888">You are receiving this email because you are a customer of Harbor.
+To unsubscribe from product updates click <a href="https://harborapp.example/unsub?t=abc123">here</a>.
+Please consider the environment before printing this email.</p>
+<img src="https://track.mailer.example/open.gif?id=9f3a" width="1" height="1" alt="">
+</body>
+</html>

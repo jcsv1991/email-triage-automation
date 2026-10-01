@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [22, 24]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - run: npm ci
+      # Unit tests: sanitizer, schema validation, helpers, and the Code-node code taken
+      # straight out of the workflow JSON and run against the sample emails.
+      - run: npm test
+      # Fails if workflow/email-triage.workflow.json is not what the build script generates.
+      - run: npm run check:build

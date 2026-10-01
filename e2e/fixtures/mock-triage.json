@@ -1,0 +1,62 @@
+{
+  "marcus.webb@example.com": {
+    "category": "billing",
+    "urgency": "high",
+    "summary": "Charged $49.00 twice on Sept 3 (order #48213); this is their third email about it. Wants a refund today or will dispute with the bank.",
+    "suggested_reply": "Hi Marcus,\n\nI'm sorry about the duplicate charge, and sorry you've had to write three times without an answer. I've asked our billing team to review order #48213 today, and I'll confirm the refund status before the end of the day.\n\nIf you can tell me the last four digits of the card that was charged, it will help us match both payments quickly.\n\nBest regards,\nHarbor Support"
+  },
+  "priya.nair@fernwooddental.example": {
+    "category": "technical",
+    "urgency": "medium",
+    "summary": "Still can't log in after a password reset: \"Token expired\" appears in Chrome and Safari. Blocks front-desk check-in tomorrow morning.",
+    "suggested_reply": "Hi Priya,\n\nThanks for the detail, that helps. A \"Token expired\" message straight after entering a new password usually means the reset link was opened more than once or in a second browser tab. Please request one fresh link, open it only once in a single private window, and set the new password right away.\n\nIf it still fails, reply here and I'll reset the account from our side so the front desk is ready tomorrow morning.\n\nBest regards,\nHarbor Support"
+  },
+  "tomasz.k@example.org": {
+    "category": "general",
+    "urgency": "low",
+    "summary": "Agency of 15 evaluating Harbor; asks whether team onboarding or training exists and whether there is a Spanish interface. No deadline.",
+    "suggested_reply": "Hi Tomasz,\n\nThanks for considering Harbor for your team. I'll confirm the current options for group onboarding sessions and Spanish-language support and get back to you with accurate details rather than guessing.\n\nIn the meantime, a trial account for your team is the quickest way to see the product.\n\nBest regards,\nHarbor Support"
+  },
+  "elena@copperkettle.example": {
+    "category": "technical",
+    "urgency": "high",
+    "summary": "Checkout shows a blank page since 9am and the shop is losing sales; the status page says all clear. Asks for a call back.",
+    "suggested_reply": "Hi Elena,\n\nI'm sorry, a checkout that shows a blank page on your busiest morning is exactly the kind of thing we need to look at right now. I've flagged this to our on-call engineer and I'll call you on the number in your email as soon as I have an update.\n\nIf you can send the time of the last failed attempt and the browser a customer used, it will speed things up.\n\nBest regards,\nHarbor Support"
+  },
+  "jordan.blake@example.net": {
+    "category": "general",
+    "urgency": "low",
+    "summary": "Asks whether invoice template customization (logo, footer text) is available on the standard plan.",
+    "suggested_reply": "Hi Jordan,\n\nThanks for your question. I'm checking which plans include logo and footer customization on invoice templates and will reply with a definite answer.\n\nBest regards,\nHarbor Support"
+  },
+  "sam.okafor@example.com": {
+    "category": "technical",
+    "urgency": "medium",
+    "summary": "CSV export of roughly 40,000 rows times out after about a minute. The email also contains instructions aimed at an AI, which were ignored.",
+    "suggested_reply": "Hi Sam,\n\nThanks for the details. Exports of around 40,000 rows can hit our time limit. As a workaround, try exporting in date ranges, and I'll ask our team whether the limit can be raised for your account.\n\nBest regards,\nHarbor Support"
+  },
+  "chris.d@example.com": {
+    "category": "technical",
+    "urgency": "low",
+    "summary": "One-line report that something is not working, with no detail about what, where or when.",
+    "suggested_reply": "Hi Chris,\n\nI'm sorry it isn't working, but I don't have enough information to help yet. Could you tell me what you were trying to do, what you saw on the screen (an error message or a screenshot is ideal), and which browser or device you're using?\n\nBest regards,\nHarbor Support"
+  },
+  "aisha@brightpathconsulting.example": {
+    "category": "other",
+    "urgency": "low",
+    "summary": "Consulting firm with about 30 clinic clients asks whether Harbor has a reseller or referral program and who to contact.",
+    "suggested_reply": "Hi Aisha,\n\nThank you for reaching out about a partnership. I'll pass your details to the right person on our team and ask them to contact you directly.\n\nBest regards,\nHarbor Support"
+  },
+  "qa-badenum@example.test": {
+    "category": "refunds",
+    "urgency": "high",
+    "summary": "Deliberately invalid answer used by the test suite: category is not in the enum.",
+    "suggested_reply": "This reply should never be drafted because the category is invalid."
+  },
+  "qa-flaky@example.test": {
+    "category": "billing",
+    "urgency": "high",
+    "summary": "Every payment on the customer's store has been failing for the last hour; asks for immediate help.",
+    "suggested_reply": "Hi,\n\nI'm sorry, failing payments for a whole hour is serious. I've escalated this to our payments team now and will update you as soon as I know the cause.\n\nIf you can share one failed order number and the error your customers see, it will help us find the problem faster.\n\nBest regards,\nHarbor Support"
+  }
+}

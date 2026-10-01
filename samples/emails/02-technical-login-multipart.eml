@@ -1,0 +1,51 @@
+From: Priya Nair <priya.nair@fernwooddental.example>
+To: Harbor Support <support@harborapp.example>
+Subject: Re: Can't log in after password reset
+Date: Tue, 29 Sep 2026 09:03:12 -0700
+Message-ID: <sample-02-login-multipart@mail.example.com>
+In-Reply-To: <earlier-thread-msg@harborapp.example>
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="000000000000alt0002"
+
+--000000000000alt0002
+Content-Type: text/plain; charset="UTF-8"
+
+Hi,
+
+I tried the new reset link you sent and I still can't get in. After I enter
+my new password the page says "Token expired" and sends me back to the login
+screen. I've tried twice in Chrome and once in Safari. It's blocking our
+front desk from checking in patients tomorrow morning, so I'd appreciate a
+reply when you can.
+
+Thanks,
+Priya
+
+On Tue, Sep 29, 2026 at 8:41 AM Harbor Support <support@harborapp.example> wrote:
+> Hi Priya,
+>
+> Sorry about the trouble. I've sent a fresh reset link to your email.
+> It is valid for 30 minutes.
+>
+> Best,
+> Dana
+
+--
+Priya Nair
+Operations Lead, Fernwood Dental
++1 555 0142
+
+CONFIDENTIALITY NOTICE: This email and any attachments are confidential and
+intended only for the named recipient.
+
+--000000000000alt0002
+Content-Type: text/html; charset="UTF-8"
+
+<div dir="ltr"><p>Hi,</p>
+<p>I tried the new reset link you sent and I still can't get in. After I enter my new password the page says "Token expired" and sends me back to the login screen. I've tried twice in Chrome and once in Safari. It's blocking our front desk from checking in patients tomorrow morning, so I'd appreciate a reply when you can.</p>
+<p>Thanks,<br>Priya</p>
+<div class="gmail_quote"><div dir="ltr" class="gmail_attr">On Tue, Sep 29, 2026 at 8:41 AM Harbor Support &lt;support@harborapp.example&gt; wrote:<br></div>
+<blockquote class="gmail_quote" style="margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex">Hi Priya,<br><br>Sorry about the trouble. I've sent a fresh reset link to your email. It is valid for 30 minutes.<br><br>Best,<br>Dana</blockquote></div>
+<div class="gmail_signature"><div dir="ltr">Priya Nair<br>Operations Lead, Fernwood Dental<br>+1 555 0142</div></div></div>
+
+--000000000000alt0002--

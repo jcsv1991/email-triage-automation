@@ -1,0 +1,10 @@
+From: QA Bad Answer <qa-badenum@example.test>
+To: Harbor Support <support@harborapp.example>
+Subject: Test: the model returns an invalid category
+Date: Wed, 30 Sep 2026 10:01:00 -0700
+Message-ID: <e2e-09-badenum@mail.example.test>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
+
+This email exists so the test suite can make the mocked model return an invalid
+category. The workflow must not label it, log it, or draft a reply.

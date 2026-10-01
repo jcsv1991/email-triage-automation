@@ -1,0 +1,28 @@
+{
+  "name": "triage_email",
+  "description": "Record the triage result for one customer support email.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "category": {
+        "type": "string",
+        "enum": ["billing", "technical", "general", "other"],
+        "description": "What the email is mainly about."
+      },
+      "urgency": {
+        "type": "string",
+        "enum": ["high", "medium", "low"],
+        "description": "How time-sensitive or upset the customer sounds."
+      },
+      "summary": {
+        "type": "string",
+        "description": "One or two sentences a support agent can scan in a log."
+      },
+      "suggested_reply": {
+        "type": "string",
+        "description": "A draft reply for a human to review and send. If there is not enough information for a real answer, say so plainly instead of guessing."
+      }
+    },
+    "required": ["category", "urgency", "summary", "suggested_reply"]
+  }
+}

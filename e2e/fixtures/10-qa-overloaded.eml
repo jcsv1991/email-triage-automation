@@ -1,0 +1,11 @@
+From: QA Overloaded <qa-overloaded@example.test>
+To: Harbor Support <support@harborapp.example>
+Subject: Test: the Claude API is overloaded
+Date: Wed, 30 Sep 2026 10:02:00 -0700
+Message-ID: <e2e-10-overloaded@mail.example.test>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
+
+This email exists so the test suite can make the mocked API answer HTTP 529
+(overloaded) every time. The workflow should retry, then raise a manual-review
+alert instead of dropping the email.

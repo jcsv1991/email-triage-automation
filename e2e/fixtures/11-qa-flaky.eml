@@ -1,0 +1,12 @@
+From: QA Flaky API <qa-flaky@example.test>
+To: Harbor Support <support@harborapp.example>
+Subject: Test: payments are failing right now
+Date: Wed, 30 Sep 2026 10:20:00 -0700
+Message-ID: <e2e-11-flaky@mail.example.test>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
+
+Every payment on my store has failed for the last hour. Please help right away.
+
+(Test fixture: the mocked Claude API answers HTTP 529 on the first attempt and
+succeeds on the retry. This email arrives alone, in its own poll.)
