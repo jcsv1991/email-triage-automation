@@ -37,13 +37,13 @@ flowchart LR
 
 ## Setup
 
-You need: a Gmail account to read, a Google Sheet, a Slack workspace where you can add an app, and an Anthropic API key. Tested on **n8n 2.41.4**.
+You need: a Gmail account to read, a Google Sheet, a Slack workspace where you can add an app, and an Anthropic API key. Tested on **n8n 2.41.4** (automated tests) and on n8n Cloud (live run).
 
 1. **Import** `workflow/email-triage.workflow.json` (n8n: Workflows > Import from file).
 2. **Create the credentials** and select them on the matching nodes. The imported file contains only placeholders, no secrets.
    - *Gmail OAuth2* for the Gmail Trigger, Get Gmail labels, Apply Gmail label and Save Gmail draft.
    - *Google Sheets OAuth2* for Log to Google Sheets.
-   - *Slack* (bot token, scope `chat:write`) for the two Slack nodes. Invite the bot to the alert channel.
+   - *Slack API* with an Access Token (the bot token, scope `chat:write`) for the two Slack nodes. Invite the bot to the alert channel.
    - *Header Auth* for the Claude node: name `x-api-key`, value your Anthropic API key. (The node adds the `anthropic-version` header itself.)
 3. **Create the Sheet.** Make a tab named `Triage log` whose first row is exactly the header in [`docs/triage-log-header.csv`](docs/triage-log-header.csv): `Received, From, Subject, Category, Urgency, Summary, Flags, Thread ID`. Then put its ID in the Log to Google Sheets node.
 4. **Create four Gmail labels:** `Triage/billing`, `Triage/technical`, `Triage/general`, `Triage/other`. If one is missing, that email simply gets no label and everything else still runs.
@@ -58,7 +58,7 @@ You need: a Gmail account to read, a Google Sheet, a Slack workspace where you c
    | `labelPrefix` | `Triage/` | Prefix of the Gmail labels |
    | `mailIndex` | `0` | Which signed-in Google account (`/mail/u/N/`) the Slack links open |
 
-7. **Point the Gmail Trigger at a test inbox first**, then activate the workflow.
+7. **Point the Gmail Trigger at a test inbox first**, then publish the workflow (older n8n versions call this activating it). Publish again after any edit, or the change does not go live.
 
 To try it, follow the [live demo script](docs/DEMO.md). It includes copy-paste test emails and the order to show things in.
 
@@ -98,13 +98,25 @@ npm run check:build   # fails if the workflow JSON is out of sync with src/
 
 The checks were also **mutation-tested**: deliberately breaking the workflow (wrong urgency rule, no forced tool call, draft paired with the wrong email, hidden text not stripped, Slack text not escaped) makes the end-to-end run fail each time.
 
+### Run on real services
+
+In October 2026 the workflow was run on a test Gmail inbox with the real Gmail, Google Sheets, Slack and Claude (`claude-haiku-4-5-20251001`) services, on n8n Cloud. The emails were fictional, sent from a separate sender account, and processed one at a time over two days. What was confirmed:
+
+- Each email got its label, a Sheet row, and an unsent draft on the original thread. The high-urgency billing email also posted a Slack alert.
+- The "Open the draft" link in the Slack alert opened the draft in Gmail, with `mailIndex` set to the signed-in account's position.
+- The sanitizer removed the sender's mail-client footer before the email reached Claude.
+- The first version of the system prompt let the model invent things. In both runs of the double-charge email, its draft promised a refund, gave made-up deadlines and claimed actions nobody had taken. After the reply rules in `prompts/system-prompt.txt` were tightened, one round of the three demo emails produced drafts that met the checks: no promised refund or deadline for the billing email, no invented features for the onboarding question, and a request for more details for the vague email.
+
+That last result is one run per email. It shows the tightened prompt can pass, not that it always will, and the drafts still need small edits from a person.
+
 ### What is *not* verified
 
 Please read this before relying on the project.
 
-- **Claude is mocked.** In every test the "model" returns canned answers. The tests prove the workflow sends Claude the right request and handles any answer correctly. They say **nothing about how good the real model's classifications or drafts are** on your emails. Check that yourself with the demo emails before going live. The model ID in Settings was not called against the real API.
-- **Gmail, Google Sheets and Slack were faked too.** The fakes follow the documented request shapes, but this has not run against the real services. Real OAuth, real rate limits and real Gmail polling behaviour are untested.
-- **The "Open the draft" link is unverified.** It is built as `https://mail.google.com/mail/u/<mailIndex>/#drafts?compose=<draft id>`. If Gmail does not open the draft from that link in your account, the thread link in the same alert still works.
+- **Draft quality on real mail is unmeasured.** Only the demo emails went through the real model, a handful of times. The wording changes from run to run, and nothing here says how accurate the classifications or drafts are on your company's email. Check that yourself on a test inbox before going live.
+- **The automated tests still use fake services.** The unit tests and the 18-check end-to-end run answer every outside call with canned data. They prove the workflow sends the right requests and handles any answer correctly. They do not test the real model.
+- **Volume and long-running use are untested** against the real services: Gmail rate limits, many emails in one poll, and how long the Google sign-in stays valid. The real-service runs processed one email at a time.
+- **The two prompt-injection samples** were run through the sanitizer in the unit tests, not through the real model.
 - Only English emails were tested. Attachments and images are not read. Quoted-reply and signature removal is heuristic and will miss unusual layouts.
 - Prompt-injection protection **reduces** risk, it does not remove it. The real safeguard is that a person reads every draft and nothing is sent automatically.
 
